@@ -150,7 +150,7 @@ const AppliedPage = () => {
         postId: selectedLectureId,
         reservationDate: new Date().toISOString()
       };
-
+      
       // 신청 취소 요청
       const response = await axios.post(
         'http://43.202.15.40/api/reserve',
@@ -238,17 +238,31 @@ const AppliedPage = () => {
               </div>
               <div className="applied-card-footer">
                 <button 
-                  className={`action-button ${lecture.myStatus === 'DONE' ? 'review' : 'cancel'}`}
+                  className={`action-button ${
+                    lecture.myStatus === 'REVIEWED' 
+                      ? 'completed'
+                      : lecture.myStatus === 'DONE' 
+                        ? 'review' 
+                        : 'cancel'
+                  }`}
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (lecture.myStatus === 'DONE') {
-                      handleReviewClick(lecture);  // 강의 객체 전체 전달
+                    if (lecture.myStatus === 'REVIEWED') {
+                      // 이미 리뷰가 작성된 경우 클릭 불가
+                      return;
+                    } else if (lecture.myStatus === 'DONE') {
+                      handleReviewClick(lecture);
                     } else {
                       handleCancelClick(lecture.postId);
                     }
                   }}
+                  disabled={lecture.myStatus === 'REVIEWED'}
                 >
-                  {lecture.myStatus === 'DONE' ? '후기 작성' : '신청 취소'}
+                  {lecture.myStatus === 'REVIEWED' 
+                    ? '후기 작성 완료' 
+                    : lecture.myStatus === 'DONE' 
+                      ? '후기 작성' 
+                      : '신청 취소'}
                 </button>
               </div>
             </div>

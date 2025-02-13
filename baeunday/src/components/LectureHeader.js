@@ -16,9 +16,7 @@ const LectureHeader = ({ isInstructor, isHearted, onHeartClick, lectureId }) => 
 
   const handleActionSelect = (action) => {
     switch (action) {
-      case '수정':
-        console.log('수정하기');
-        break;
+
       case '삭제':
         console.log('삭제하기');
         break;
@@ -56,12 +54,7 @@ const LectureHeader = ({ isInstructor, isHearted, onHeartClick, lectureId }) => 
       {showActions && isInstructor && (
         <div className="action-sheet-overlay" onClick={() => setShowActions(false)}>
           <div className="action-sheet" onClick={e => e.stopPropagation()}>
-            <button 
-              className="action-button"
-              onClick={() => handleActionSelect('수정')}
-            >
-              수정
-            </button>
+            
             <button 
               className="action-button delete"
               onClick={() => handleActionSelect('삭제')}

@@ -117,7 +117,7 @@ const ReviewForm = () => {
                 </div>
                 <div className="review-form-input-container">
                     <span className="review-main-text">후기 남기기</span>
-                    <span className="review-optional-text">(선택)</span>
+                    <span className="review-optional-text">(필수)</span>
                 </div>
                 <input 
                     type="text" 

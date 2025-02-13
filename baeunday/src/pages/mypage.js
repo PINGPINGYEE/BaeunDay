@@ -18,6 +18,7 @@ export default function MyPage() {
     profileImg: '',
     field: ''
   });
+  const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
 
   const handleOpenModal = () => setIsModalOpen(true);
@@ -83,6 +84,26 @@ export default function MyPage() {
     };
 
     fetchUserProfile();
+
+    // 리뷰 데이터를 가져오는 함수
+    const fetchReviews = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://43.202.15.40/api/review/me', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.data.data.body) {
+          setReviews(response.data.data.body.slice(0, 2)); // 최근 2개의 리뷰만 표시
+        }
+      } catch (error) {
+        console.error('리뷰를 불러오는데 실패했습니다:', error);
+      }
+    };
+
+    fetchReviews();
   }, [navigate]);
 
   return (
@@ -130,20 +151,15 @@ export default function MyPage() {
           <div className="p-menuTextContainer">
             <div className="p-menuTitle" id='p-menuTitle2'>받은 평가</div>
             <div className="p-reviewList">
-              <div className="p-reviewItem">
-                <img src={mainEx6} alt="프로필" className="p-reviewerImage" />
-                <div className="p-reviewContent">
-                  <div className="p-reviewerName">조림핑</div>
-                  <div className="p-reviewText">비전공자인 제가 듣기에도 알기 쉽게 설명해주셔서 평가는 5점으로 하겠습니다. 근데 이제 사심을 곁들인</div>
+              {reviews.map((review) => (
+                <div key={review.review_id} className="p-reviewItem">
+                  <img src={mainEx6} alt="프로필" className="p-reviewerImage" />
+                  <div className="p-reviewContent">
+                    <div className="p-reviewerName">{review.name}</div>
+                    <div className="p-reviewText">{review.field}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="p-reviewItem">
-                <img src={mainEx6} alt="프로필" className="p-reviewerImage" />
-                <div className="p-reviewContent">
-                  <div className="p-reviewerName">마음은 어부</div>
-                  <div className="p-reviewText">제나이 여든. 하나뿐인 아들놈이 뭣하는지 알고싶었는대. 이제 이해할 수 있을 것 같습니다.</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <img src={vectorIcon} alt="화살표" className="p-arrow" id="p-arrow3" onClick={handleReviewPage} /> 

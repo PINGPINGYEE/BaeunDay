@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import InquiryHeader from '../components/InquiryHeader';
 import '../css/registeredLecture.css';
 import mainEx1 from '../assets/examples/mainEx1.png';
 import mainEx2 from '../assets/examples/mainEx2.png';
@@ -46,9 +45,7 @@ const RegisteredLecturePage = () => {
 
   return (
     <div className="registered-lecture-container">
-      <InquiryHeader 
-        title={<span style={{ marginLeft: '-10px' }}>등록한 강의</span>} 
-      />
+
       <div className="registered-content">
         {registeredItems.map((item) => (
           <div 

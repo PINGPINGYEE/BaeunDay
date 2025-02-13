@@ -19,7 +19,7 @@ const BottomNavigation = () => {
   };
 
   const handlePlusClick = () => {
-    navigate('/lectureregister');
+    navigate('/survey');
   };
 
   return (

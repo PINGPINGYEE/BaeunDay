@@ -2,16 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../css/lectureDetail.css';
 import LectureHeader from './LectureHeader';
-import InquirySection from './InquirySection'; 
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 
-import mainEx1 from '../assets/examples/mainEx1.png';
-import mainEx2 from '../assets/examples/mainEx2.png';
-import mainEx3 from '../assets/examples/mainEx3.png';
-import mainEx4 from '../assets/examples/mainEx4.png';
-import mainEx5 from '../assets/examples/mainEx5.png';
-import profileEx1 from '../assets/examples/profileEx1.png';
 import profileDft from '../assets/examples/profileDft1.png';
 import jjimIcon from '../assets/images/jjim.svg';
 import jjimedIcon from '../assets/images/jjimed.svg';
@@ -53,6 +46,7 @@ const LectureDetailPage = () => {
   const [isHearted, setIsHearted] = useState(false);
   const [isApplied, setIsApplied] = useState(false);
   const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleHeart = async () => {
     try {
@@ -195,6 +189,54 @@ const LectureDetailPage = () => {
     }
   };
 
+  const handleDelete = async () => {
+    const isConfirmed = window.confirm('정말로 이 강의를 삭제하시겠습니까?');
+    
+    if (!isConfirmed) return;
+
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('로그인이 필요합니다.');
+        navigate('/login');
+        return;
+      }
+
+      // API 호출
+      const response = await axios({
+        method: 'DELETE',
+        url: `http://43.202.15.40/api/posts/${lectureId}`,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'accept': '*/*',
+          'Content-Type': 'application/json'
+        }
+      });
+
+      console.log('Delete response:', response);
+
+      if (response.status === 200 || response.status === 204) {
+        alert('강의가 성공적으로 삭제되었습니다.');
+        // 메인 페이지로 이동
+        navigate('/', { replace: true });
+      }
+    } catch (error) {
+      console.error('강의 삭제 실패:', error);
+      if (error.response) {
+        console.error('Error response:', error.response);
+        if (error.response.status === 403) {
+          alert('삭제 권한이 없습니다.');
+        } else if (error.response.status === 404) {
+          alert('해당 강의를 찾을 수 없습니다.');
+        } else {
+          alert(`강의 삭제에 실패했습니다. (${error.response.status})`);
+        }
+      } else {
+        alert('서버와의 통신에 실패했습니다.');
+      }
+    }
+  };
+
   useEffect(() => {
     const fetchLectureDetail = async () => {
       try {
@@ -268,6 +310,10 @@ const LectureDetailPage = () => {
     navigate(`/lecture/${lectureId}/inquiries`);
   };
 
+  const menuItems = [
+    { label: '삭제하기', onClick: handleDelete }
+  ];
+
   if (error) return <div>Error: {error}</div>;
   if (!lectureData) return <div>Loading...</div>;
 
@@ -280,17 +326,6 @@ const LectureDetailPage = () => {
           onHeartClick={toggleHeart}
           lectureId={lectureId}
         />
-        
-        {/* 모드 선택 드롭다운 */}
-        <select 
-          onChange={handleUserChange} 
-          value={currentUser}
-          className="mode-selector"
-        >
-          <option value="조림핑">관람자 모드</option>
-          <option value={lectureData?.instructor}>강사 모드</option>
-        </select>
-
         <section className="lecture-detail-info">
           <div className="lecture-detail-top">
             <img src={lectureData.image} alt={lectureData.title} className="lecture-detail-image" />
@@ -379,17 +414,6 @@ const LectureDetailPage = () => {
           </div>
         </div>
         
-        {/* 문의하기 섹션 수정 */}
-        <div className={`inquiry-button-section ${!isOwner ? 'viewer-mode' : ''}`}>
-          <h3>문의하기</h3>
-          <div className="inquiry-button-wrapper">
-            <button 
-              className="inquiry-button"
-              onClick={handleInquiryClick}
-            >
-              문의 전체보기
-            </button>
-          </div>
           {/* 작성자가 아닐 때만 신청하기 버튼 표시 */}
           {!isOwner && (
             <div className="apply-button-container">
@@ -402,8 +426,24 @@ const LectureDetailPage = () => {
             </div>
           )}
         </div>
+        {isOwner && showMenu && (
+          <div className="menu-dropdown">
+            {menuItems.map((item, index) => (
+              <div 
+                key={index} 
+                className="menu-item"
+                onClick={() => {
+                  item.onClick();
+                  setShowMenu(false);
+                }}
+              >
+                {item.label}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+
   );
 };
 
