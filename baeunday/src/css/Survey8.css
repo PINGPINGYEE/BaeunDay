@@ -1,0 +1,319 @@
+.survey-container {
+    width: 100%;
+    max-width: 375px; /* 모바일 화면 최대폭에 맞춤 */
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* 헤더 스타일 */
+  .survey-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* 뒤로가기 버튼 */
+  .survey-back {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 45px;
+    margin-left: 10px;
+  }
+  
+  .survey-back:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 타이틀 */
+  .survey-title {
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    margin-top: 55px;
+    margin-bottom: 10px;
+  }
+  
+  /* 도움말 버튼 */
+  .survey-help {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-right: 2px;
+    margin-top: 48px;
+  }
+  
+  .survey-help:hover {
+    opacity: 0.7;
+  }
+  
+  .survey2-button-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background-color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  
+  /* "다음" 버튼 (기존 유지) */
+  .survey2-button {
+    width: 100%;
+    padding: 14px 0;
+    background-color: #216CFA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: -9px;
+    font-weight: 650;
+  }
+  
+  .survey2-button:hover {
+    background-color: #1a56c6;
+  }
+  
+  .foot8 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  
+  .survey2-title {
+    font-size: 18px;
+    font-weight: 630;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* 입력 칸 스타일 */
+  .survey2-input {
+    width: 330px;
+    height: 220px; /* 입력칸 높이 */
+    padding: 12px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none; /* 클릭 시 파란 테두리 제거 */
+    margin-top: 220px;
+    margin-left: 10px;
+  }
+  
+  /* 입력 칸 placeholder 스타일 */
+  .survey2-input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  /* 입력 칸 포커스 시 스타일 */
+  .survey2-input:focus {
+    border: 1px solid #4285F4; /* 포커스 시 파란색 강조 */
+  }
+  
+  /* 추가: 하단 버튼을 반반 배치하는 스타일 */
+  .survey-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    padding: 9px;
+    display: flex; /* 버튼을 가로로 정렬 */
+  }
+  
+  /* 버튼 높이 및 정렬 통일 */
+  .survey-prev-button,
+  .survey-next-button2 {
+    flex: 1; /* 각 버튼이 동일한 크기로 확장 */
+    height: 45px; /* 버튼 높이 동일 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* "이전" 버튼 (흰색) */
+  .survey-prev-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #888;
+  }
+  
+  /* "다음" 버튼 (파란색) */
+  .survey-next-button2 {
+    background-color: #216CFA;
+    border: none;
+    color: #fff;
+  }
+  
+  /* 버튼 hover 효과 */
+  .survey-prev-button:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .survey-next-button2:hover {
+    background-color: #1a56c6;
+  }
+  
+  .survey1-title2{
+    font-size: 18px;
+    font-weight: 630;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 160px;
+  }
+
+  /* 날짜 선택 전체 래퍼 */
+.lecture-date-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    /* width: 400px;  여백 강제 지정 제거 */
+  }
+  
+  /* '강의 날짜' 라벨 */
+  .lecture-date-label {
+    font-weight: bold;
+    /* margin-right: 12px; 기존 제거/주석 */
+  }
+  
+  /* 연/월/일 선택 박스 나란히 배치 */
+  .date-selectors-inline {
+    display: flex;
+    gap: 8px; /* 박스 사이 간격 */
+  }
+  
+  /* 각 선택 박스 */
+  .date-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 89px; /* 원하는 크기로 조절 */
+    justify-content: space-between;
+    margin-left: 0;  /* 변경: 기존 7px -> 0 */
+    margin-right: 0; /* 변경: 기존 -8px -> 0 */
+  }
+  
+  /* 화살표 이미지 */
+  .date-selector img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* 드롭다운 메뉴 */
+  /* 드롭다운 목록의 최대 높이를 늘려 스크롤 되게 하기 */
+.dropdown-menu {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: none;
+    /* 목록이 많아도 스크롤로 볼 수 있게 높이 설정 */
+    max-height: 200px; 
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+  }
+  
+  /* 드롭다운 항목 */
+  .dropdown-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  .dropdown-menu li:hover {
+    background-color: #f5f5f5;
+
+  }
+
+
+/* time-inputs: 라벨과 입력칸 가로 정렬 + 간격 확보 */
+.time-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 강의 시간 입력칸 스타일 개선 */
+.time-inputs input {
+    width: 142px;
+    height: 20px;
+    border: 1px solid #ccc;  /* 연한 회색 테두리 */
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;           /* 클릭 시 파란/검은 테두리 제거 */
+    padding: 7px;            /* 내부 여백 */
+    font-size: 14px;
+    color: #333;
+    margin-left: 13px;
+  }
+  
+  /* 포커스 시(클릭 시) 테두리 색상 */
+  .time-inputs input:focus {
+    border-color: #216CFA;   /* 원하는 색상으로 변경 가능 */
+  }
+
+  .time-separator{
+    margin-left: 10px;
+    margin-right: 1px;
+  }
+  
+  .lecture-time-label{
+    margin-left: 13px;
+    margin-right: 16px; /* 라벨과 입력칸 사이 공간 추가 */
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .lecture-date-label{
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 13px;      /* 좌측 정렬 통일 */
+    margin-right: 16px;     /* 라벨과 날짜 선택 박스 사이 공간 확보 */
+  }
+
+
+/* 8_3 */
+.time-radio input {
+  margin-right: 5px;
+  margin-left: 13px;
+  margin-bottom: 20px;
+}
+/* 가격 입력란 */
+.price-input {
+  display: none; /* 기본적으로 가격 입력란 숨김 */
+}
+/* 유료 버튼에만 가격 입력란 추가 */
+.time-radio {
+  display: flex;
+  align-items: center;
+}
+/* 유료 버튼 클릭 시 가격 입력란 보이기 */
+.time-radio input[type="radio"]:checked + .price-input {
+  display: inline-block;
+}

@@ -1,0 +1,179 @@
+/* 전체 컨테이너 */
+.survey-container {
+    width: 100%;
+    max-width: 375px; /* 모바일 화면 최대폭에 맞춤 */
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  /* 헤더 스타일 */
+  .survey-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* 뒤로가기 버튼 */
+  .survey-back {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 45px;
+    margin-left: 10px;
+  }
+  
+  .survey-back:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 타이틀 */
+  .survey-title {
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    margin-top: 55px;
+    margin-bottom: 10px;
+  }
+  
+  /* 도움말 버튼 */
+  .survey-help {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-right: 2px;
+    margin-top: 48px;
+  }
+  
+  .survey-help:hover {
+    opacity: 0.7;
+  }
+  
+  /* 모달 스타일 */
+  .survey-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 300px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .survey-modal-content p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .survey-modal-content button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .survey-modal-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* 추가: 375x812 이하 해상도에서 더 세밀하게 조정 */
+  @media screen and (max-width: 375px) and (max-height: 812px) {
+    .survey-container {
+      padding: 10px;
+    }
+    .survey-header {
+      padding: 8px 12px;
+    }
+    .survey-title {
+      font-size: 15px;
+    }
+    .survey-modal {
+      padding: 15px;
+    }
+    .survey-modal-content p {
+      font-size: 14px;
+    }
+    .survey-modal-content button {
+      padding: 6px 12px;
+    }
+  }
+  /* 안내 문구 스타일 */
+.survey-intro {
+    padding: 16px;
+    font-size: 17px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 650;
+    margin-top: 7px;
+  }
+  
+  /* 이름만 색상 다르게 설정 */
+.highlighted-name {
+    color: #2D68FF; /* 원하는 색상 코드로 변경 */
+    font-weight: 650; /* 굵게 설정 (옵션) */
+  }
+  
+/* 하단 버튼 영역 추가 */
+.survey-footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 375px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .survey-direct-button {
+    margin-right: -1px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 650;
+    width: 28%;
+    margin-top: -9px;
+  }
+  
+  .survey-next-button1 {
+    margin-left: 8px;
+    background-color: #2D68FF; /* 원하는 색상 */
+    border: none;
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 650;
+    width: 72%;
+    margin-top: -9px;
+  }
+  
+  /* 버튼 hover 효과 (옵션) */
+  .survey-footer:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
