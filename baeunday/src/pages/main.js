@@ -349,7 +349,7 @@ const MainPage = () => {
     <div className="main-container">
       <header className={`top ${selectorMode ? 'selector-open' : ''}`}>
         <div className="header-container">
-          <h1 className="baeunday">BAEUNDAY</h1>
+          <h1 className="baeunday">MANNAJANG</h1>
           <div className="search-icon">
             <img src={searchIcon} alt="search" />
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/loading.css"; // CSS 파일 불러오기
-import logo from "../assets/images/logo.svg"; // ✅ SVG 로고 이미지 불러오기
+import logo from "../assets/images/로고.svg"; // ✅ SVG 로고 이미지 불러오기
 
 const Loading = () => {
     const navigate = useNavigate();
