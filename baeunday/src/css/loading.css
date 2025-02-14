@@ -1,3 +1,4 @@
+Loading.css
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -10,9 +11,16 @@
 
 /* 로고 스타일 */
 .loading-logo {
-  width: 280px; /* ✅ 원하는 크기로 조정 */
-  height: auto; /* ✅ 비율 유지 */
+  width: 100px; /* ✅ 원하는 크기로 조정 */
+  height: 100px; /* ✅ 비율 유지 */
   max-width: 300vw; /* ✅ 화면 크기에 따라 조정 */
   margin-bottom: 20px; /* 로고 아래 여백 */
   object-fit: contain; /* ✅ 이미지 비율 유지하면서 조정 */
+}
+
+.loading-text {
+  margin-top: 0px;
+  font-size: 25px;
+  color: white;
+  /* 필요한 다른 스타일이 있다면 여기에 추가 */
 }

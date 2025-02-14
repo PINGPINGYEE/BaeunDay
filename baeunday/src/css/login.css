@@ -1,3 +1,4 @@
+Login.css
 /* 로그인 페이지 전체 컨테이너 */
 .login-container {
   display: flex;
@@ -22,7 +23,6 @@
 
 .header-left {
   position: absolute;
-  left: -2vw;
   display: flex;
   align-items: center;
 }
@@ -52,30 +52,25 @@
 
 /* 로그인 폼 스타일 */
 .login-form {
-  width: 90%;
-  max-width: 450vw;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 340px;
+  margin-top: 10px;
+  height: 100px;
 }
 
 /* 입력 필드 그룹 */
 .input-group {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100px;
   margin-bottom: 31px;
+  margin-left: 20px;
 }
 
 /* 라벨 (아이디, 비밀번호) */
 .input-group label {
   font-size: 17px;
   font-weight: bold;
-  margin-bottom: 4px;
   color: #333;
-  text-align: left;
-  margin-left: 3vw;
 }
 
 /* 필수 입력 표시 */
@@ -108,8 +103,8 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  margin-top: 66vh;
-  margin-left: 10vw;
+  margin-top: 600px;
+  margin-left: 12px;
   position: fixed;
 }
 
@@ -118,7 +113,6 @@
   color: #216CFA;
   font-size: 12px;
   margin-top: 1vh;
-  margin-left: -52vw;
 }
 
 .error-input {
@@ -127,5 +121,77 @@
 }
 
 .login-error-text {
-  color: #216CFA
+  color: #216CFA;
 }
+
+.signup-title {
+  font-size: 17px;
+  margin-left: -20px;
+}
+
+.login-error-text img {
+  margin-top: 2px;    /* 아이콘을 아래로 조금 이동 */
+  margin-right: 3px;  /* 텍스트와의 간격 추가 */
+}
+
+/* -------------------------------------- */
+/* 아래부터 추가로 오버라이드하는 부분   */
+/* -------------------------------------- */
+
+/* 1) 라벨, 입력칸, 에러메시지를 왼쪽 정렬로 보이게 */
+.login-form .input-group {
+  margin-left: 0;        /* 그룹 자체 왼쪽 여백 제거 */
+  padding: 0 20px;       /* 필요하다면 양 옆에 20px 내외 여백 */
+}
+
+.login-form .input-group input {
+  margin-left: 0;        /* 입력칸 왼쪽 여백 제거 */
+  width: 100%;           /* 가로폭 100%로 늘리기 */
+  max-width: 400px;      /* 너무 길어지지 않게 제한(필요시) */
+  font-size: 14px;       /* 보기 편하도록 글자 크기 약간 키움 */
+  padding: 10px;         /* 입력칸 안쪽 여백 약간 늘림 */
+}
+
+/* 2) 에러메시지 위치를 입력칸 바로 아래로 */
+.login-error-text {
+  margin-left: 0;  
+  margin-top: 8px; /* 입력칸과 에러 메시지 사이 간격 */
+  font-size: 12px;
+  display: flex;
+  align-items: center; /* 아이콘과 텍스트 수직 정렬 */
+}
+
+/* 3) 로그인 버튼 위치 조정 */
+.login-button {
+  position: static;  /* 고정 위치 해제 */
+  margin: 20px auto 0 auto; /* 위쪽 간격 20px, 수평 중앙 정렬 */
+  width: 350px;  
+  margin-top: 450px;
+  margin-left: 12px;
+}
+/* 추가 오버라이드 스타일 (기존 CSS 맨 아래에 붙여 주세요) */
+
+/* 라벨만 왼쪽으로 더 붙이기 */
+.login-form .input-group label {
+  margin-left: -10px; /* 음수 마진으로 그룹 padding을 상쇄 */
+}
+
+/* 오류 메시지도 라벨과 같은 위치로 왼쪽 정렬하기 */
+.login-form .login-error-text {
+  margin-left: -10px; /* 음수 마진으로 그룹 padding을 상쇄 */
+}
+/* 맨 아래 추가로 작성 */
+
+.login-form .input-group input {
+  /* 기존에 10px이었던 패딩을 줄여서 세로 길이 축소 */
+  padding: 5px;
+}
+
+/* 오류 메시지를 입력칸 아래로 내려서 한 줄 아래에 표시 */
+.login-error-text {
+  display: block;       /* 블록 요소로 변경 (줄바꿈) */
+  margin-top: 6px;      /* 입력칸과 오류 메시지 사이 간격 */
+  margin-left: 0;       /* 혹시나 음수 마진 등이 있었다면 제거 */ /* 아이콘과 텍스트를 수직 정렬 (block이므로 크게 영향은 없음) */
+}
+
+

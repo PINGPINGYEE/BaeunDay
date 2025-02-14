@@ -17,8 +17,8 @@ function Notlogin() {
         <div className="notlogin-container">
             <header>
                 <h1 className="title">
-                    <span className="highlight">배운데이</span>
-                    <span className="title-sub">와 함께</span>
+                    <span className="highlight">만나장</span>
+                    <span className="title-sub">과 함께</span>
                 </h1>
                 <p className="subtitle">지역에서 어디에서나 강사에 도전해보세요!</p>
                 <p className="description">
