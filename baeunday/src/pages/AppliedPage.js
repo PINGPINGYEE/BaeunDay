@@ -52,7 +52,7 @@ const AppliedPage = () => {
         }
       };
 
-      let url = 'http://43.202.15.40/api/reserve';
+      let url = 'https://mannajang.store/api/reserve';
       const params = new URLSearchParams();
       
       if (filter === '참가확정') {
@@ -153,7 +153,7 @@ const AppliedPage = () => {
       
       // 신청 취소 요청
       const response = await axios.post(
-        'http://43.202.15.40/api/reserve',
+        'https://mannajang.store/api/reserve',
         requestBody,
         config
       );

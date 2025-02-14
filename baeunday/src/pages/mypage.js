@@ -89,7 +89,7 @@ export default function MyPage() {
     const fetchReviews = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://43.202.15.40/api/review/me', {
+        const response = await axios.get('https://mannajang.store/api/review/me', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

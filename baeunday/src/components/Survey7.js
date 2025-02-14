@@ -46,7 +46,7 @@ const Survey7 = () => {
 
     // API 호출을 백그라운드에서 비동기로 실행
     try {
-      const response = await axios.post('http://43.202.15.40/api/gpt', surveyData, {
+      const response = await axios.post('https://mannajang.store/api/gpt', surveyData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',

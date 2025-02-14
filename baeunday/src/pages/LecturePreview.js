@@ -163,7 +163,7 @@ const LecturePreview = ({ onClose }) => {
       // info JSON을 FormData에 추가
       formData.append('info', new Blob([JSON.stringify(lectureInfo)], { type: 'application/json' }));
 
-      const response = await axios.post('http://43.202.15.40/api/posts', formData, {
+      const response = await axios.post('https://mannajang.store/api/posts', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
